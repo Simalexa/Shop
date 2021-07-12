@@ -1,0 +1,8 @@
+1->Apple->A->50
+2->Apple->B->40
+3->Apple->C->45
+4->Apple->D->60
+5->Water->A->5
+6->Water->B->10
+7->Water->C->10
+8->Water->D->1

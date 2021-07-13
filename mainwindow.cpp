@@ -133,11 +133,30 @@ void MainWindow::on_pushButton_9_clicked()
     for(int i =0; i < ShopWithAllProduct.size();i++)
     {
         QStringList BestShop = ShopWithAllProduct[i].split("->");
-        ui->listWidget->addItem(BestShop[0]+" "+BestShop[1]);
+        ui->listWidget->addItem(BestShop[0]);
     }
     BestPlace pl;
     pl = b->FindBestShop(ShopWithAllProduct);
     ui->listWidget_2->addItem(QString::number(pl.BestPrice));
     ui->listWidget_3->addItem(pl.BestShop);
-    qDebug()<< pl.BestPrice;
+}
+/*Save List To FIle*/
+void MainWindow::on_pushButton_10_clicked()
+{
+    QFile List("/home/aleksandra/Документы/Cpp/ProductList/ProductList.txt");
+    List.resize(0);
+    int i;
+    if(List.open(QIODevice::Append|QIODevice::Text))
+    {
+        QTextStream in(&List);
+        for(i=0; i< ui->tableWidget_2->rowCount();i++)
+        {
+            in<<ui->tableWidget_2->item(i,0)->text()<<endl;
+        }
+    }
+}
+/*Clear List*/
+void MainWindow::on_pushButton_11_clicked()
+{
+     ui->tableWidget_2->setRowCount(0);
 }

@@ -30,8 +30,6 @@ QStringList Buy::findUniqueShop(class MainWindow *m, int lineNumber)
             }
             if(flag==true)
             {
-                //Shop[k] << m->Shop[i];
-                //k++;
                 Shop.append(m->Shop[i]);
             }
             flag=true;
@@ -73,12 +71,10 @@ BestPlace Buy::FindBestShop(QStringList Shop)
 {
     BestPlace pl;
     int position = 0, massive[Shop.size()],el;
-    qDebug()<<Shop.size();
     for(int i=0; i<Shop.size(); i++)
     {
         QString devide1 = Shop[i].split("->")[1];
         massive[i]=devide1.toInt();
-        qDebug()<<massive[i];
     }
     el=massive[0];
     for(int i=1; i<Shop.size(); i++)
